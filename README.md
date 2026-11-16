@@ -33,26 +33,19 @@ Intelligence console for TON: profile wallets and trace token flows.
 <img src="./assets/icons/rune.svg" width="14" align="absmiddle" alt="" /> &nbsp;**[url-to-md](https://github.com/vellbenev/url-to-md)** &nbsp;<sub>Python · Flask</sub><br />
 Paste a URL, get clean Markdown.
 
-<sub>Smaller things: [Foundry Fit](https://github.com/vellbenev/Foundry-Fit), 30-minute calisthenics for people who sit all day · [Cook Without Brain](https://github.com/vellbenev/cook-without-brain), a Persian recipe matcher for what's already in your pantry.</sub>
-
 <h3><img src="./assets/headings/03-active-quests.svg" alt="03 · Active Quests" width="100%" /></h3>
 
-<img src="./assets/icons/lantern.svg" width="16" align="absmiddle" alt="" /> &nbsp;**Unchain Foundation** &nbsp;<sub>in progress · two years, several iterations</sub>
+<img src="./assets/icons/lantern.svg" width="16" align="absmiddle" alt="" /> &nbsp;**Unchain Foundation** &nbsp;<sub>in progress</sub>
 
 Tools that let people hold their own money, identity and data, without asking anyone's permission.
 
 <sub>Privacy-preserving systems · peer-to-peer infrastructure · zero-knowledge technology</sub>
 
-<h3><img src="./assets/headings/04-the-arsenal.svg" alt="04 · The Arsenal" width="100%" /></h3>
-
-**Languages** &nbsp;TypeScript · JavaScript · Python<br />
-**Craft** &nbsp;React · Next.js · Vite · Flask · local-first architecture
-
-<h3><img src="./assets/headings/05-research-notes.svg" alt="05 · Research Notes" width="100%" /></h3>
+<h3><img src="./assets/headings/04-research-notes.svg" alt="04 · Research Notes" width="100%" /></h3>
 
 Zero-Knowledge Proofs · Cryptography & Privacy Engineering · Blockchain & Decentralized Systems · Self-Sovereign Infrastructure · Open-source Software
 
-<h3><img src="./assets/headings/06-the-journey.svg" alt="06 · The Journey" width="100%" /></h3>
+<h3><img src="./assets/headings/05-the-journey.svg" alt="05 · The Journey" width="100%" /></h3>
 
 <div align="center">
   <img src="./assets/journey/journey.svg" alt="Contribution calendar for the last year, drawn as a grid of pixel squares" width="100%" />

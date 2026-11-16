@@ -398,9 +398,8 @@ HEADINGS = [
     ("01", "THE CODEX", "research"),
     ("02", "THE WORKSHOP", "building"),
     ("03", "ACTIVE QUESTS", "lantern"),
-    ("04", "THE ARSENAL", "cryptography"),
-    ("05", "RESEARCH NOTES", "privacy"),
-    ("06", "THE JOURNEY", "decentralization"),
+    ("04", "RESEARCH NOTES", "privacy"),
+    ("05", "THE JOURNEY", "decentralization"),
 ]
 
 
