@@ -49,25 +49,45 @@ def fetch(token):
 
 
 def render(cal):
-    cell, gap, pad = 10, 3, 16
+    # Same 640-wide stone plate as the other assets, so they share one pixel scale.
+    from build_assets import REDUCED, W, frame
+
+    cell, gap = 9, 2
     step = cell + gap
     weeks = cal["weeks"]
-    width = pad * 2 + len(weeks) * step - gap
-    height = pad * 2 + 7 * step - gap
+    grid_w = len(weeks) * step - gap
+    pad_x, pad_y = (W - grid_w) // 2, 22
+    height = pad_y * 2 + 7 * step - gap
+    # A band of lantern light sweeps across the map; the brightest days pulse.
+    # Frame 0 (and any renderer that freezes animation) shows the full grid.
+    style = (
+        ".sweep{animation:sweep 7s ease-in-out 1s infinite;transform:translateX(-40px)}"
+        f"@keyframes sweep{{0%{{transform:translateX(-40px)}}45%,100%{{transform:translateX({W}px)}}}}"
+        ".hot{animation:hot 3.2s ease-in-out infinite}"
+        "@keyframes hot{0%,100%{opacity:1}50%{opacity:.65}}" + REDUCED
+    )
     out = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" '
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {height}" '
         f'width="100%" role="img" shape-rendering="crispEdges" '
         f'aria-label="{cal["totalContributions"]} contributions in the last year">',
-        f'<rect width="{width}" height="{height}" fill="#101310"/>',
-        f'<rect x="1" y="1" width="{width - 2}" height="{height - 2}" fill="none" stroke="#222920" stroke-width="2"/>',
+        f"<style>{style}</style>",
+        frame(W, height),
     ]
     for wi, week in enumerate(weeks):
+        out.append("<g>")
         for di, day in enumerate(week["contributionDays"]):
-            color = LEVELS.get(day["contributionLevel"], LEVELS["NONE"])
+            level = day["contributionLevel"]
+            color = LEVELS.get(level, LEVELS["NONE"])
+            hot = ' class="hot"' if level == "FOURTH_QUARTILE" else ""
             out.append(
-                f'<rect x="{pad + wi * step}" y="{pad + di * step}" '
+                f'<rect{hot} x="{pad_x + wi * step}" y="{pad_y + di * step}" '
                 f'width="{cell}" height="{cell}" fill="{color}"/>'
             )
+        out.append("</g>")
+    out.append(
+        f'<rect class="sweep" x="0" y="{pad_y - 4}" width="28" height="{7 * step + 6}" '
+        f'fill="#E6CF94" opacity=".09"/>'
+    )
     out.append("</svg>")
     return "\n".join(out) + "\n"
 
